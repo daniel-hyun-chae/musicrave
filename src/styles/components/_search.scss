@@ -1,0 +1,21 @@
+.search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__switch {
+    display: flex;
+    align-items: center;
+  }
+
+  &__switch-option {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  &__box {
+    border-radius: 2rem;
+    outline: none;
+  }
+}

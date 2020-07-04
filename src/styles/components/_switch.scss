@@ -1,0 +1,35 @@
+.switch {
+  background-color: $color-grey-dark-3;
+  width: 4rem;
+  height: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.3rem 0.4rem;
+  margin: 1rem;
+
+  &__slider {
+    display: inline-block;
+
+    cursor: pointer;
+    height: 100%;
+    width: 50%;
+    background-color: $color-grey-light-3;
+    border-radius: 1rem;
+
+    -webkit-transition: margin 0.3s;
+    transition: margin 0.3s;
+  }
+
+  &__checkbox:checked + &__slider {
+    margin-left: 50%;
+  }
+
+  &__checkbox {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+  }
+}
