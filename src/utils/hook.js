@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 export function useOnScreen(ref, option) {
   // State and setter for storing whether element is visible
@@ -21,7 +21,7 @@ export function useOnScreen(ref, option) {
 }
 
 export const useField = (type) => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
 
   const onChange = (event) => {
     setValue(event.target.value);

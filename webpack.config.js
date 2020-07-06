@@ -1,41 +1,41 @@
-const path = require("path");
-const webpack = require("webpack");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
+const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = (env, argv) => {
   const backend_url =
-    argv.mode === "production"
-      ? "https://blooming-atoll-75500.herokuapp.com/api/notes"
-      : "http://localhost:3001/api/notes";
+    argv.mode === 'production'
+      ? 'https://blooming-atoll-75500.herokuapp.com/api/notes'
+      : 'http://localhost:3001/api/notes';
 
   return {
-    entry: ["@babel/polyfill", "./src/index.js"],
+    entry: ['@babel/polyfill', './src/index.js'],
     output: {
-      path: path.resolve(__dirname, "build"),
-      filename: "main.js",
+      path: path.join(__dirname, 'build'),
+      filename: 'main.js',
     },
     devServer: {
-      contentBase: path.resolve(__dirname, "build"),
+      contentBase: path.join(__dirname, 'build'),
       compress: true,
-      host: "0.0.0.0",
+      host: 'localhost',
       disableHostCheck: true,
       port: 3001,
       overlay: true,
       proxy: {
-        "/auth": "http://localhost:3000",
-        "/api": "http://localhost:3000",
+        '/auth': 'http://localhost:3000',
+        '/api': 'http://localhost:3000',
       },
     },
 
-    devtool: "source-map",
+    devtool: 'source-map',
     module: {
       rules: [
         {
           test: /\.js$/,
-          loader: "babel-loader",
+          loader: 'babel-loader',
           exclude: /node_modules/,
           query: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
+            presets: ['@babel/preset-env', '@babel/preset-react'],
           },
         },
         {
@@ -43,13 +43,13 @@ const config = (env, argv) => {
           use: [
             { loader: MiniCssExtractPlugin.loader },
             {
-              loader: "css-loader",
+              loader: 'css-loader',
               options: {
                 sourceMap: true,
               },
             },
             {
-              loader: "sass-loader",
+              loader: 'sass-loader',
               options: {
                 sourceMap: true,
               },
@@ -60,7 +60,7 @@ const config = (env, argv) => {
           test: /\.(png|jpe?g|gif)$/i,
           use: [
             {
-              loader: "file-loader",
+              loader: 'file-loader',
             },
           ],
         },
