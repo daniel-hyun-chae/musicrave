@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import Switch from './Switch';
-import { useField } from '../utils/hook';
-import { search } from '../services/spotify';
+import Switch from "./Switch";
+import HorizontalScroller from "./HorizontalScroller";
+import { useField } from "../utils/hook";
+
+import { setSearchCreator } from "../reducers/searchReducer.js";
 
 const Search = () => {
   const [switchState, setSwitchState] = useState(false);
-  const searchField = useField('text');
+  const searchField = useField("text");
 
   const dispatch = useDispatch();
-  const profile = useSelector((profile) => profile);
+  const profile = useSelector((store) => store.profile);
 
   const onSearch = (event) => {
     searchField.onChange(event);
-
-    const searchType = switchState ? 'artist' : 'track';
-    search(searchType, searchField.value, profile);
+    const searchType = switchState ? "artist" : "track";
+    dispatch(
+      setSearchCreator(searchType, searchField.value, profile.data.country)
+    );
   };
 
   return (
@@ -25,8 +28,8 @@ const Search = () => {
         <span
           className={
             switchState
-              ? 'search__switch-option'
-              : 'search__switch-option search__switch-option--active'
+              ? "search__switch-option"
+              : "search__switch-option search__switch-option--active"
           }
         >
           by track
@@ -35,8 +38,8 @@ const Search = () => {
         <span
           className={
             switchState
-              ? 'search__switch-option search__switch-option--active'
-              : 'search__switch-option'
+              ? "search__switch-option search__switch-option--active"
+              : "search__switch-option"
           }
         >
           by artist
@@ -48,6 +51,7 @@ const Search = () => {
         onChange={onSearch}
         className="search__box"
       />
+      <HorizontalScroller />
     </div>
   );
 };
