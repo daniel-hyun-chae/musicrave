@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+
+  &__title {
+    font-family: 'Monoton', sans-serif;
+    color: $color-white;
+    font-size: 4rem;
+    display: inline-block;
+  }
+  &__login {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    display: inline-block;
+  }
+
+  &__login-logo {
+    width: 3rem;
+    height: 3rem;
+  }
+}

@@ -1,5 +1,5 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 const HorizontalScroller = () => {
   const searchResults = useSelector((store) => store.search.tracks.items);
@@ -15,11 +15,9 @@ const HorizontalScroller = () => {
               />
               <div className="horizontal-scroller__text">
                 <div className="horizontal-scroller__text-main">
-                  {item.name}
+                  {item.name} - {item.artists[0].name}
                 </div>
-                <div className="horizontal-scroller__text-sub">
-                  {item.artists[0].name}
-                </div>
+                <div className="horizontal-scroller__text-sub"></div>
               </div>
             </li>
           ))}

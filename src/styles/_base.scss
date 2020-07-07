@@ -40,7 +40,12 @@ $color-black: #000;
 }
 
 body {
+  background-color: $color-grey-dark-3;
   box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $color-grey-dark;
 }
 
 li {
@@ -49,43 +54,4 @@ li {
 
 html {
   font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
-
-  @include responsive(620px) {
-    font-size: 75%;
-  }
-  @include responsive(960px) {
-    font-size: 85%;
-  }
-  @include responsive(1200px) {
-    font-size: 95%;
-  }
-}
-
-input,
-textarea {
-  padding: 10px 16px;
-}
-
-// fonts
-body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  line-height: 1.7;
-  color: $color-grey-dark;
-}
-
-h1 {
-}
-h2 {
-  font-size: 3rem;
-}
-h3 {
-  font-size: 1.2rem;
-}
-
-h4 {
-  font-size: 1.1rem;
-}
-p {
-  font-size: 1.7rem;
 }

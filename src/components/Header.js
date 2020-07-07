@@ -1,10 +1,12 @@
-import React from "react";
+import React from 'react';
 
 const Header = () => {
   return (
-    <header>
-      <a href="/auth/login">Login</a>
-      <a href="/api/profile/me">Get profile info</a>
+    <header className="header">
+      <div className="header__title">Musicrave</div>
+      <a className="header__login" href="/auth/login">
+        <img className="header__login-logo" src="images/spotify-logo.svg" />
+      </a>
     </header>
   );
 };
